@@ -32,10 +32,6 @@ boxes.forEach(box => {
 }); 
 }
 
-// Button needs to:
-// Ask for the next number of boxes.
-// Clear the current number of boxes. 
-// Make a new set of boxes. 
 const btn = document.querySelector("button");
 btn.addEventListener("click", () => {
     numOfBoxes = prompt("Enter a number between 1 and 100");
