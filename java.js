@@ -14,12 +14,24 @@ function createboxes (num) {
 createboxes(numOfBoxes);
 
 const boxes = document.querySelectorAll(".box")
-addcolor(boxes);
+addColor(boxes);
 removeColor(boxes);
-function addcolor (boxes) {
+
+// Challenge 1: Randomize colors for mouse event
+// Challenge 2: Darkening Effect / Increase Opacity
+let opac = 0.1;
+function addColor (boxes) {
 boxes.forEach(box => {
     box.addEventListener("mouseenter", () => {
-        box.style.backgroundColor = "orange";
+        // Randomize color
+        let r = Math.floor(Math.random() * 256 );
+        let g = Math.floor(Math.random() * 256 );
+        let b = Math.floor(Math.random() * 256 );
+        box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        box.style.opacity = `${opac}`;
+        if (opac < 1) {
+            opac += 0.1;
+        }
     });
 });
 }
@@ -39,8 +51,9 @@ btn.addEventListener("click", () => {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
+    opac = 0.1;
     createboxes(numOfBoxes);
     const boxes = document.querySelectorAll(".box")
-    addcolor(boxes);
+    addColor(boxes);
     removeColor(boxes);
 })
